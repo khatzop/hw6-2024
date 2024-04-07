@@ -1,5 +1,6 @@
 var video;
 var volumeDisplay = document.querySelector("#volume");
+var volumeSlider = document.querySelector("#slider");
 
 
 // Page Load
@@ -8,7 +9,6 @@ window.addEventListener("load", function() {
 	video=document.querySelector("#player1");
 	video.autoplay=false;
 	video.loop=false;
-	volumeDisplay.innerHTML = (video.volume * 100).toFixed(0) + '%';
 	console.log("Auto play is set to " + video.autoplay);
 	console.log("loop is set to " + video.loop);
 });
@@ -16,11 +16,9 @@ window.addEventListener("load", function() {
 // Play Button
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
-	video.play();
-	video.addEventListener('playing', function() {
-		volumeDisplay.innerHTML = (video.volume * 100).toFixed(0) + '%';
-		console.log("Volume:", video.volume);
-	}, { once: true });
+    video.play();
+    volume.innerHTML = volumeSlider.value + '%';
+	console.log("Loop is set to " + video.loop);
 });
 
 
