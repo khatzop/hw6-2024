@@ -17,9 +17,12 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	video.play();
-	volumeDisplay.innerHTML = (video.volume * 100).toFixed(0) + '%';
-	console.log("Volume:", video.volume);
+	video.addEventListener('playing', function() {
+		volumeDisplay.innerHTML = (video.volume * 100).toFixed(0) + '%';
+		console.log("Volume:", video.volume);
+	}, { once: true });
 });
+
 
 // Pause Button
 document.querySelector("#pause").addEventListener("click", function() {
